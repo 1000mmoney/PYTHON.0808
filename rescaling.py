@@ -11,6 +11,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import Binarizer
+from sklearn.linear_model import LinearRegression
 
 # 각 항목 이름 붙이기
 colums = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
@@ -34,11 +35,13 @@ Y = array[:, 8]
 # # 0 또는 1의 값을 바꾸는 방법 : 바이너라이저
 scaler = Binarizer(threshold=0.5)
 rescaled_X = scaler.fit_transform(X)
-print(rescaled_X)
+# print(rescaled_X)
 
 
-# model = LinearRegression()
-# model.fit(X, Y)
-#
-# predicted_Y = model.predict(X)
-# y = (predicted_Y > 0.5).astype(int)
+model = LinearRegression()
+model.fit(X, Y)
+
+predicted_Y = model.predict(X)
+y = (predicted_Y > 0.5).astype(int)
+
+print(y)
