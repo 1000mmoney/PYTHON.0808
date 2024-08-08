@@ -35,8 +35,10 @@ Y = array[:, 8]
 scaler = Binarizer(threshold=0.5)
 rescaled_X = scaler.fit_transform(X)
 print(rescaled_X)
-model = LinearRegression()
-model.fit(X, Y)
 
-predicted_Y = model.predict(X)
-y = (predicted_Y > 0.5).astype(int)
+
+# model = LinearRegression()
+# model.fit(X, Y)
+#
+# predicted_Y = model.predict(X)
+# y = (predicted_Y > 0.5).astype(int)
